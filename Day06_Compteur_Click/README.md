@@ -69,3 +69,4 @@ Des captures d'écran de l'application sont disponibles dans le dossier `screens
 - Thème personnalisable
 - Effectes sonores
 - Statistiques d'utilisation
+ 

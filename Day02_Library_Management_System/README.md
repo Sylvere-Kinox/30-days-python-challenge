@@ -51,6 +51,5 @@ Voir le dossier `screenshots` pour des exemples d'exécution.
 
 Ceci est un exercice personnel pour pratiquer Python. Toute amélioration est la bienvenue — ouvre une issue ou propose une pull request si tu veux partager des améliorations.
 
----
 
-Si tu veux, j'ajoute une section "Exemples d'utilisation" en copiant le output réel après que j'exécute `main.py` ici. Veux-tu que je lance le script pour capturer les sorties et enrichir le README ?
+
