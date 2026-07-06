@@ -1,110 +1,88 @@
-# Calculateur d'IMC
+# Calculateur d'IMC — Version scientifique
 
-## Description
+Résumé
+-------
+Outil pédagogique et d'illustration développé en Python (bibliothèque `tkinter`) pour calculer l'indice de masse corporelle (IMC) à partir du poids et de la taille d'un individu. Le présent document décrit la méthode de calcul, les conventions d'interprétation utilisées, les limites biométriques de l'IMC et les instructions d'exécution.
 
-Ce projet est une application graphique simple développée en Python avec Tkinter. Elle permet à un utilisateur de saisir son poids et sa taille, de calculer automatiquement son indice de masse corporelle (IMC), puis d'afficher un résultat interprété selon les seuils couramment utilisés en santé publique.
+Contexte scientifique
+---------------------
+L'indice de masse corporelle (IMC, ou BMI en anglais) est un indicateur anthropométrique couramment utilisé pour estimer la corpulence d'un individu :
 
-## Objectif
+$$
+\\mathrm{IMC} = \\frac{\\mathrm{poids\\ (kg)}}{\\left(\\mathrm{taille\\ (m)}\\right)^2}
+$$
 
-L'objectif de cette application est de montrer comment créer une interface utilisateur simple avec Python, tout en mettant en pratique plusieurs notions fondamentales :
+Cet indicateur est utilisé à l'échelle populationnelle pour surveiller la prévalence du surpoids et de l'obésité. Il ne constitue pas un diagnostic clinique : il ne distingue pas la masse grasse de la masse maigre, ni la distribution de la masse corporelle.
 
-- saisie de données,
-- validation des entrées,
-- calculs mathématiques,
-- affichage dynamique de résultats,
-- gestion des erreurs utilisateur.
+Interprétation et seuils
+-----------------------
+Les catégories d'interprétation présentées dans l'application suivent les seuils courants recommandés par les organismes de santé publique :
 
-## Fonctionnalités
+- IMC < 18,5 : insuffisance pondérale
+- 18,5 ≤ IMC < 25,0 : corpulence normale
+- 25,0 ≤ IMC < 30,0 : surpoids
+- IMC ≥ 30,0 : obésité
 
-- Saisie du poids en kilogrammes
-- Saisie de la taille en mètres
-- Calcul automatique de l'IMC à partir des valeurs saisies
-- Affichage du résultat numérique avec deux décimales
-- Interprétation du résultat selon la catégorie correspondante
-- Bouton permettant de réinitialiser les champs
-- Messages d'erreur si les valeurs saisies sont invalides
+Remarques méthodologiques
+------------------------
+- Un résultat chiffré est arrondi à deux décimales pour l'affichage.
+- L'IMC n'est pas adapté pour certaines populations (athlètes très musclés, personnes âgées avec sarcopénie, femmes enceintes, enfants et adolescents — pour ces derniers, utiliser les courbes et percentiles spécifiques à l'âge et au sexe).
+- Pour une évaluation corporelle plus précise, combiner l'IMC avec d'autres mesures : tour de taille, rapport taille/hanches, pourcentage de masse grasse (DEXA, impédancemétrie), etc.
 
-## Prérequis
+Prérequis techniques
+--------------------
+- Python 3.8 ou supérieur
+- `tkinter` (fourni par défaut sous Windows/macOS ; sous certaines distributions Linux, installer `python3-tk`)
 
-Pour exécuter ce projet, vous aurez besoin de :
-
-- Python 3.8 ou une version supérieure
-- Tkinter, généralement installé par défaut avec Python sur Windows, macOS et Linux
-
-## Installation
-
-1. Ouvrez votre terminal ou votre invite de commandes.
-2. Accédez au dossier du projet :
+Exécution
+---------
+1. Ouvrir un terminal et se placer dans le répertoire du projet :
 
 ```bash
-cd Day07_IMC_Calculator
+cd 30-days-python-challenge/Day07_IMC_Calculator
 ```
 
-3. Lancez l'application avec la commande suivante :
+2. Lancer l'application :
 
 ```bash
 python main.py
 ```
 
-## Utilisation
+Utilisation
+-----------
+- Saisir le poids en kilogrammes (kg) et la taille en mètres (m).
+- Cliquer sur « Calculer l'IMC ».
+- L'interface affiche l'IMC calculé (2 décimales) et la catégorie correspondante.
 
-Une fois l'application lancée :
+Structure du dépôt
+------------------
+- `main.py` : implémentation de l'interface et de la logique de calcul
+- `README.md` : ce document
+- `screenshots/` : captures d'écran (facultatif)
 
-1. Entrez votre poids en kilogrammes dans le champ prévu.
-2. Entrez votre taille en mètres dans le champ correspondant.
-3. Cliquez sur le bouton "Calculer l'IMC".
-4. Le programme affiche votre IMC ainsi que sa catégorie interprétative.
+Conception et validation
+------------------------
+Le code réalise des contrôles de validité élémentaires : conversion numérique, valeurs strictement positives et gestion d'erreurs d'entrée. Pour des usages scientifiques, on recommandera :
 
-## Interprétation de l'IMC
+- de quantifier l'incertitude des mesures (précision des pèses-personnes et mesures de taille),
+- d'ajouter des tests unitaires pour les fonctions de calcul et de validation,
+- d'enregistrer les entrées/sorties pour audit (format CSV/JSON) si nécessaire.
 
-L'application classe l'IMC selon les valeurs suivantes :
+Extensions possibles
+-------------------
+- Persistance des résultats dans un fichier CSV/JSON ou une base SQLite
+- Export des séries de mesures pour analyse (p. ex. évolution temporelle)
+- Ajout de métriques complémentaires (tour de taille, ratio taille/hanches)
+- Module d'aide clinique avec références et recommandations personnalisées
 
-- Inférieur à 18,5 : insuffisance pondérale
-- Entre 18,5 et 24,9 : poids normal
-- Entre 25 et 29,9 : surpoids
-- Supérieur ou égal à 30 : obésité
+Références
+----------
+- Organisation mondiale de la santé (OMS) — définition et seuils de l'IMC pour les adultes.
 
-Ces catégories sont fournies à titre indicatif et ne remplacent pas un avis médical.
+Licence et mentions
+-------------------
+Consulter le fichier `LICENSE` à la racine du dépôt pour les conditions d'utilisation.
 
-## Structure du projet
-
-- main.py : contient la logique du programme ainsi que l'interface graphique
-- screenshots/ : dossier contenant les captures d'écran du projet
-
-## Logique du programme
-
-Le script principal réalise les étapes suivantes :
-
-1. Crée la fenêtre principale avec Tkinter.
-2. Affiche les champs de saisie pour le poids et la taille.
-3. Récupère les valeurs entrées par l'utilisateur.
-4. Vérifie que les données sont valides et positives.
-5. Calcule l'IMC avec la formule :
-
-$$
-IMC = \frac{poids}{taille^2}
-$$
-
-6. Affiche le résultat et la catégorie correspondante.
-
-## Gestion des erreurs
-
-L'application affiche un message d'erreur si :
-
-- le poids ou la taille n'est pas un nombre valide,
-- une valeur négative ou nulle est saisie,
-- les champs sont laissés vides.
-
-## Améliorations possibles
-
-Voici quelques idées pour enrichir ce projet :
-
-- ajouter une validation plus détaillée des données saisies,
-- améliorer l'interface graphique avec des couleurs et des polices plus modernes,
-- enregistrer l'historique des calculs,
-- intégrer une version avec base de données ou fichier JSON,
-- ajouter des conseils personnalisés selon le résultat.
-
-## Licence
-
-Ce projet est fourni à titre éducatif et peut être utilisé librement dans un cadre d'apprentissage.
+Contact
+-------
+Voir le README principal du dépôt pour les informations de contact et les modalités de contribution.
