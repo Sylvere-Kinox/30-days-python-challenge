@@ -1,0 +1,10 @@
+ID,Name,OLD,Salaire,Departement
+1,Alice,30.0,50000.0,IT
+2,Bob,25.0,45000.0,HR
+3,Charlie,35.0,55000.0,IT
+4,Alice,30.0,50000.0,IT
+7,Frank,45.0,70000.0,Finance
+8,Bob,25.0,45000.0,HR
+10,Henry,29.0,52000.0,HR
+13,Kevin,41.0,68000.0,IT
+15,Liam,26.0,46000.0,HR
